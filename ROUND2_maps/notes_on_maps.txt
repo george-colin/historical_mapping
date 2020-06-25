@@ -1,0 +1,189 @@
+
+[[UPDATE - 2020 june 25th - have done ROUND2 of nnet training (using extra training data) - comments from ROUND2 are in square brackets like this comment is]]
+
+2020 june 4th
+GE's visual assments of the nnet's performance on the maps FD sent (scale 20k and 25k)
+THIS IS FOR THE FIRST WORKING VERSIONS OF THE NNET (1 nnet for 25k, 1 nnet for 20k)
+comments are somewhat subjective, but if you view a few of the outputs, you'll be 'calibrated' to GE's arbitary scale
+ratings are based on how useful the nnet might be to a human user in terms of tracing boundaries
+NOTE - ROUND2 comments have now also been added, they are enclosed in [[]] - e.g. [[this is a comment on the ROUND2 nnet outputs (rather than round 1)]]
+
+
+//////////////////////////////////////////////////////////////////////////////
+scale:  20000
+
+chukyo_20000_16_1    - [[OK            - improved a bit in ROUND2]]
+                         OK/MEDIOCRE     SCAN IS MEDIOCRE IN PARTS, and there the nnet also is mediocre  -  MAYBE TRACE AS EXTRA TRAINING DATA ??
+chukyo_20000_16_2    - [[OK            - improved a bit in ROUND2 - also sea chaff has gone :) ]]
+                         OK/MEDIOCRE     SCAN IS MEDIOCRE IN PARTS, and there the nnet also is mediocre  -  **has provincial boundary q**  -  MAYBE TRACE AS EXTRA TRAINING DATA ??  #I AM NOT TRACING THIS - IT IS A HUGE MAP TO TRACE, and FD says  - - - -  boundary that might be provincial is NOT IMPORTANT - also, it might clash with path/track traces. 
+chukyo_20000_16_3    - [[OK            - improved a bit in ROUND2 - quite a bit is better, BUT some is worse - overall it is improved though]]
+                         OK-ISH          scan is mostly good, but some poor scan regions  -  **has uncertain town village city ward boundary**  has provincial boundary q   **TRACE AS EXTRA TRAINING DATA** !!   #I AM NOT TRACING THIS - IT IS A HUGE MAP TO TRACE  
+chukyo_20000_16_4    - [[OK            - only slightly better  +some, -some BUT chaff in sea has gone]]
+                         OK-ISH 
+chukyo_20000_16_5    - [[OK            - only slightly better  +some, -some BUT chaff in sea has gone]]
+                         OK/MEDIOCRE
+chukyo_20000_16_6    - [[OK            - provincial boundary is now right - because we traced it]] 
+                         OK-ISH        - BUT contains LOTS of provincial boundary     **TRACE AS EXTRA TRAINING DATA** !!  <-- do 1 of    #chukyo_20000_16_6_EASTPARTCROP traced in ROUND2
+chukyo_20000_16_7    - [[OK            - improved quite a bit :) - the provincial boundary is now done right]]
+                         OK-ISH        - BUT contains LOTS of provincial boundary     **TRACE AS EXTRA TRAINING DATA** ??  <-- these 2
+fukui_20000_16_1     - OK              - NOTE - WE traced it, so it should be good because the nnet was trained on 80% of it
+fukui_20000_16_2     - GOOD
+hamamatsu_20000_16_1 - [[OK]]
+                         OK-ISH          - some bits are missed by nnet are ones it ought to have got - i.e. not all excusable by poor scan - TRACE ?   #TODO
+hamamatsu_20000_16_2 - [[OK-ISH  -  misses a few bits of boundary.  has trouble in some wooded hillsides - but I find them hard/impossible to trace also]]
+                         OK-ISH          - has provincial boundary q
+hamamatsu_20000_16_3 - [[OK-ISH - misses some sections of boundary - I think maybe the boundary style is slightly different here - shorter dashes for the city-or-district (i.e. gun) boundary]]
+                        OK-ISH          - **has dotted lines that the nnet detects when it ought not to detect**
+hamamatsu_20000_16_4 - [[OK-ISH - again, missing some short/stubby ..-..-.. boundary  NOTE - has pure ..... boundary in the SE sector - FD said to ignore this
+                         WOULD BE OK-ISH - BUT HAS MANY dotted boundaries !?! !!
+himeji_20000_16      - [[OK - note: has no margin on W,E,S sides - as if it were part of a bigger map??]]
+                         OK
+kanazawa_20000_16_1  - [[GOOD]]
+                         OK              - margin is costing us some - rhs has big margin from my rounding into 256 pixel chunks
+kanazawa_20000_16_2  - [[OK]]
+                         OK-ISH
+kanazawa_20000_16_3  - [[OK]]
+                         OK-ISH          - has very widely spaced prefectural boundary, which confuses the nnet in places  -  TRACE to add this wierd style to the dataset ?? !!  #QWE
+kanazawa_20000_16_4  - [[OK]]
+                         OK-ISH          - NOTE - misses some boundaries that are actually quite clear !?!  has what might be an unusual style for provincial boundary - IF SO, THEN TRACE IT to add it to the collection !!  #TODO?  #QWE
+kanazawa_20000_16_5  - [[GOOD - NOTE - we traced this, so it should be good]]
+                         OK-ISH          - NOTE - scan is ok, NNET OUGHT TO DO BETTER IN SOME PLACES - MAYBE TRACE THIS  ?? !!                                                #traced in ROUND2
+kanazawa_20000_16_6  - [[OK]]
+                         OK-ISH          - NOTE - scan is ok, NNET OUGHT TO DO BETTER IN SOME PLACES - MAYBE TRACE THIS - but if you do the one above, then that is enough.
+kanazawa_20000_16_7  - [[OK]]
+                         OK-ISHISH       - map is OK, nnet ought to do slightly better
+keihansin_20000_16_1 - [[OK]]
+                         OK
+keihansin_20000_16_2 - [[GOOD]]
+                         GOOD            - NOTE - WE traced it, so it should be good because the nnet was trained on 80% of it  - NOTE - nnet showed GE 2 places where he had missed tracing some boundary !!!!  :)
+keihansin_20000_16_3 - [[GOOD]]
+                         GOOD            - :)
+keihansin_20000_16_4 - [[GOOD]]
+                         OK/GOOD
+keihansin_20000_16_5 - [[GOOD - NOTE - there is a very twisty ?provincial? boundary that the nnet traces patchily]]
+                         OK
+keihansin_20000_16_6 - [[GOOD - misses a few sections of twisty boundary, misses a few short-bits-of-prefectural-boundary entirely]]
+                         OK              - these OK ones are mainly because the map is well scanned  -  this one has big city with a boundary in it, which is unusual
+keihansin_20000_16_7 - [[OK]]
+                         OK -ISHISH      - has a lot of prefectural boundary, quite a bit of which is NOT well traced by the nnet - check it gets better with more training data     #keihansin_20000_16_7_SEPARTCROP traced in ROUND2
+keihansin_20000_16_8 - [[GOOD/OK]]
+                         OK -ISHISH      - has a quite a lot of prefectural boundary, some of which is not so well traced by the nnet - also has some very twisty & convoluted boundaries that the nnet struggles with
+keihansin_20000_16_9 - [[OK - BUT **I got traced-image size wrong - quite how I did this I am not sure - this means you are missing a RH strip - APOLOGIES**]]
+                         OK -ISHISH      - also has some very twisty & convoluted boundaries that the nnet struggles with - scan is ok, BUT nnet misses some boundaries it ought to spot
+keihansin_20000_16_10 - [[OK]]
+                          OK             - misses some ..-..-.. boundary that is a little more 'shortened' than the usual style
+kochi_20000_16_1     - [[GOOD]]   GOOD            - :)
+kochi_20000_16_1     - [[GOOD]]   OK/GOOD
+kumamoto_20000_16_1  - [[GOOD]]   OK/GOOD
+kumamoto_20000_16_2  - [[GOOD]]   GOOD/VGOOD      - **best i have seen** - NOTE that the scan is good - no missing 'dots' in the boundaries etc - IMO, IT IS THE SCAN QUALITY THAT DETERMINES MOST OF THE SUCESS OR FAILURE OF THE NNET
+matsuyama_20000_16   - [[GOOD]]   GOOD            - NOTE - some crazy twisted boundaries that the nnet fails on - NNET HAS NOT BEEN TRAINED ON THESE CRAZY TWISTS !!  -  **maybe add some such twisty regions?**
+nagasaki_20000_16    - [[GOOD/VGOOD]]  GOOD/VGOOD
+okayama_20000_16_1   - [[GOOD/VGOOD]]  GOOD/VGOOD
+okayama_20000_16_2   - [[GOOD/VGOOD]]  GOOD/VGOOD
+okayama_20000_16_3   - [[GOOD/VGOOD]]  GOOD/VGOOD
+okayama_20000_16_4   - [[GOOD/VGOOD]]  GOOD/VGOOD
+okayama_20000_16_5   - [[VGOOD]]       VGOOD           - NOTE - WE traced it, so it should be good because the nnet was trained on 80% of it  - NOTE - nnet showed GE 4 places where he had missed tracing some boundary !!!!  :)
+okayama_20000_16_6   - [[VGOOD]]       VGOOD           - NOTE - WE traced it, so it should be good because the nnet was trained on 80% of it
+saga_20000_16_1      - [[GOOD]]        GOOD            - has unusual style of drainage ditch/dyke
+saga_20000_16_1      - [[VGOOD]]       VGOOD           - has unusual style of drainage ditch/dyke
+sasebo_20000_16      - [[VGOOD]]       VGOOD           - ANOTHER **best i have seen** - NOTE that the scan is good - no missing 'dots' in the boundaries etc - IMO, IT IS THE SCAN QUALITY THAT DETERMINES MOST OF THE SUCESS OR FAILURE OF THE NNET
+takamatsu_20000_16_1 - [[VGOOD]]       VGOOD           - ANOTHER **best i have seen**
+takamatsu_20000_16_2 - [[VGOOD]]       GOOD
+tokushima_20000_16   - [[VGOOD]]       VGOOD
+tokyo50_20000_16_1   - [[GOOD]]        GOOD  **BAD MAP SPLICE !! **          - SOME MISSING prefectural boundary by a river, just N of the northern city  -  check that the extra training data fixes this
+tokyo50_20000_16_2   - [[GOOD]]        GOOD  **BAD MAP SPLICE !! **          - NOTE *has dots for some boundaries in the south*
+tokyo50_20000_16_3   - [[OK]]          OK              - would be good, but SE 1/10 of map is a poor scan
+tokyo50_20000_16_4   - [[OK]]          OK              - the city of tokyo is very hard/impossible for a human to trace 
+tokyo50_20000_16_5   - [[OK]]          OK              - the city of tokyo is hard
+tokyo50_20000_16_6   - [[GOOD]]        GOOD
+tokyo50_20000_16_7   - [[GOOD]]        GOOD
+tokyo50_20000_16_8   - [[OK]]          OK-ISH          - has some of the provincial boundary ??  -  check it is ok when nnet has been retrained on extra data
+tottori_20000_16     - [[VGOOD]]       VGOOD           - :)
+tsu_20000_16_1       - [[OK]]          OK              - some of the switchbacks in the mountains cause trouble  -  **TRACE THIS ONE MAYBE ??  or a subregion ?? **   #TODO? #QWE
+tsu_20000_16_2       - [[OK]]          OK              - some sections are missing of fairly clear boundaries    -  **TRACE THIS ONE MAYBE ??  or a subregion ?? **   #TODO?
+tsu_20000_16_3       - [[OK]]          OK-ISH          - WOULD BE GOOD, BUT HAS NOVEL BOUNDARY (IMO A STYLE OF PROVINCIAL BOUNDARY) ** !! - TRACE THIS !! **          #tsu_20000_16_3_EASTPARTCROP traced in ROUND2
+wakayama_20000_16_1  - [[GOOD - note - run with filled margins failed, so I have used the version with empty margins]]
+                         GOOD
+wakayama_20000_16_2  - [[GOOD]]        OK/GOOD         - HAS SOME CRAZY SWITCHBACKS, apart from that, would be GOOD/VGOOD
+yamagata_20000_16_1  - [[GOOD]]        GOOD
+yamagata_20000_16_2  - [[VGOOD]]       VGOOD           - :)
+yamaguchiA_20000_16  - [[GOOD]]        VGOOD           - :)
+yamaguchiB_20000_16  - [[GOOD]]        GOOD/VGOOD
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+scale:  25000
+
+akita_25000_16       - [[GOOD/OK  - chatter/chaff has gone :)  other areas are only changed a little - some better, a few worse]]
+                         OK       - a lot of chatter in a strip on the west side of the map - *SEE IF THIS GOES WITH MORE TRAINING DATA*     -20knnet:  OK-ish   #TODO?   
+aomori_25000_16      - [[VGOOD    - chaff in sea has gone, chaff in NW mountains has gone :)]]
+                         VGOOD    - NOTE - WE traced it, so it should be good because the nnet was trained on 80% of it - a lot of chaff in the sea.  also some chaff in NW mountains    -20knnet:  GOOD     - NOTE - WE traced it, so it should be good because the nnet was trained on 80% of it  
+fukuokaA_25000_16_1  - [[OK-ISH - TRACED IN ROUND2 - this is a poor scan and is very hard to trace in places, or impossible]]
+                         POOR    - GE cannot trace this, neither can the nnet      -  ** MAYBE TRACE ANYWAY **    - TRACED IN ROUND2
+fukuokaA_25000_16_2  - [[MEDIOCRE - this map is poorly scanned and is very hard to trace in places, or impossible - the nnet does OK considering this, but the output for the human mapper is MEDIOCRE]]
+                         POOR    - GE cannot trace this, neither can the nnet
+fukuokaA_25000_16_3  - [[MEDIOCRE - this is a poor scan]]
+                         BAD     - MASSIVE CHAFF ON THE WEST SIDE in a strip -  GE cannot trace this, neither can the nnet
+fukuokaB_25000_16_1  - [[MEDIOCRE - this is a poor scan]]
+                         BAD      - GE cannot trace this, neither can the nnet  -  NOTE - contains PROVINCIAL boundary !!  ** MAYBE TRACE ANYWAY **    #TODO?   #QWE
+fukuokaB_25000_16_2  - [[MEDIOCRE/OK-ISH]]
+                         BAD      - GE cannot trace this, neither can the nnet  -  NOTE - contains PROVINCIAL boundary !!  ** MAYBE TRACE ANYWAY **
+hiroshima_25000_16_1 - [[OK-ISH - this has improved a lot in ROUND2]]
+                         BAD      - GE cannot trace this so well, neither can the nnet
+hiroshima_25000_16_2 - [[POOR - this is a bad scan - dots in boundaries do not show, very faint, etc]]
+                         BAD      - GE cannot trace this so well, neither can the nnet
+matsue_25000_16_1    - [[VGOOD]]
+                         VGOOD   - NOTE - WE traced it, so it should be good because the nnet was trained on 80% of it    -20knnet:  ?!?MEDIOCRE - scan is mediocre, as is the nnet's output?!?
+matsue_25000_16_2    - [[GOOD]]
+                         POOR/MEDIOCRE  -  some traces are good, but massive chaff in a strip on the west side, again !?! ??WHAT IS IT??   #TODO?  #QWE
+matsue_25000_16_3    - [[GOOD - but some sea boundaries are spotty]]
+                         POOR/MEDIOCRE  -  most traces are good, but massive chaff in a strip on the west side, again !?! ??WHAT IS IT??   #TODO?  #QWE
+matsueA_25000_16     - [[GOOD]]
+                         MEDIOCRE- chatter in west strip again
+matsueB_25000_16     - [[GOOD - but some sea boundaries are spotty - NOTE - almost the same area as matsue_25000_16_3]]
+                         MEDIOCRE- chatter in west strip again - else it would be OK/GOOD
+matsumoto_25000_16_1 - [[would be OK, BUT struggles with strange style of provincial boundary - even though we traced all of this map in ROUND2 - NOTE GE: interesting that it struggled like this on training data - ?conflicts with e.g. roads or something?]]
+                         OK, EXCEPT: contains PROVINCIAL boundary !!  ** TRACE **    - TRACED IN ROUND2
+matsumoto_25000_16_2 - [[GOOD - but some of that unusual provincial boundary is missed/spotty]]
+                         OK
+matsumoto_25000_16_3 - [[GOOD]]
+                         OK
+morioka_25000_16     - [[GOOD]]
+                         ok  -  contains some PROVINCIAL BOUNDARY !!
+niigataA_25000_16_1  - [[GOOD/OK]] - BUT has some very twisty boundaries
+                         ok - BUT has some very twisty boundaries
+niigataA_25000_16_2  - [[GOOD - has some very twisty boundaries - NOTE FOR GE: 3 short track/path sections are traced, not a big deal, but interesting that this happened, as it never normally does]]
+                         ok-ish - has some very twisty boundaries
+niigataA_25000_16_3  - [[GOOD]]
+                         OK
+niigataB_25000_16_1  - [[GOOD]]
+                         OK
+niigataB_25000_16_2  - [[OK - some very twisty boundaries, but the nnet does ok on them - *a strange boundary (provincial??) is only partly mapped*]]
+                         mediocre - some chaff on west side - also, some twisty bundaries
+oita_25000_16        - [[OK-ISH/MEDIOCRE - some boundary is poorly scanned and the nnet is spotty on it]]
+                         ok-ish/mediocre - 1 boundary is only half traced, rest seem ok-ish  BUT chaff in NW strip and chaff in sea   - NORTHPART TRACED IN ROUND2  - oita_NORTHCROP - mostly just regions with no boundaries, but lots of chaff - TRACED IN ROUND 2
+sendai_25000_16_1    - [[MEDIOCRE - scan is poor inplaces - map is faint]]
+                         poor - hard for GE to trace some of this
+sendai_25000_16_2    - [[GOOD - we traced this in ROUND2]]
+                         poor - some traces half missing, **BAD chaff on west strip** !! must trace some of this, so nnet learns to ignore whatever is in this strip !!  - TRACED IN ROUND2
+sendai_25000_16_2    - [[OK]]
+                         BAD - some traces half missing, **BAD chaff on west strip**
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+COMMENTS:
+           * [[ROUND2 is always better overall - some parts of a given map might be worse, but more parts are better.  For good round1 results, round2 is a small improvement (because it was good already) - for poor ROUND1 results, ROUND2 is a big improvement.]]
+           * [[25000 is markedly harder than 20000 - mainly because the map scans are worse]]
+	   * [[map scans can be OK in 1 part of an image, and POOR in other parts]]
+           * [[chaff in sea and on land has gone in ROUND2 :)]]
+           - nnet draws chaff in the sea - from the 'equaidistant-from-shore' lines  -  GE could fix this if users care  [[fixed in ROUND2]]
+	   - struggles in cities to some degree - imo this is mainly because so few boundaries are in cities that the nnet has not seen many examples in its training data  -  again, GE thinks this is not a big deal  -  what do users think?
+	   - nnet draws some stuff in totally blank regions  -  again, GE doesn't think this is a problem  [[fixed in ROUND2]]
+	   - besides the 2 cases above, nnet has very low false +ve rate (i.e. it raely says that there is a boundary there when in fact there is no boundary)  :)
+	   - nnet struggles on the odd boundary that winds back on itself a lot - the meandering results in the nnet making 'oxbow lakes' - not a big problem, but something that the user must sort out  [[somewhat better in ROUND2, but still a problem in some places]]
+
+
+
